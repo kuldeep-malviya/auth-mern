@@ -1,0 +1,10 @@
+import express from "express"
+import { loginValidation, signUpValidation } from "../middlewares/AuthValidation.js"
+import  { login,signup } from "../controllers/authController.js"
+
+const Router = express.Router()
+
+Router.post("/signup",signUpValidation,signup)
+Router.post("/login",loginValidation,login)
+
+export default Router

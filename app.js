@@ -2,6 +2,11 @@ import express from "express"
 import dotenv from "dotenv"
 import  Router  from "./routes/authRouter.js"
 import cors from "cors"
+import cors from "cors";
+
+app.use(cors({
+  origin: "*", // test ke liye
+}));
 dotenv.config()
 import connectdb from "./models/DB.js"
 import productRouter from "./routes/productRouter.js"
@@ -10,7 +15,6 @@ import cartRouter from "./routes/cartRoutes.js"
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cors( ))    
 app.use("/uploads", express.static("uploads"));
 
 app.use("/auth",Router)

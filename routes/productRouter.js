@@ -18,4 +18,5 @@ productRouter.get("/",ensureAuthenticated,(req,res)=>{
     )
 })
 
+
 export default productRouter;

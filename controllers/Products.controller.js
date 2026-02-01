@@ -1,8 +1,8 @@
-import { productModel } from "../models/products.js"
+import Product from "../models/products.js"
 
 export const GetProducts = async (req, res) => {
     try {
-        const products = await productModel.find()
+        const products = await Product.find().sort({ createdAt: -1 });
         return res.status(200).json({
             success: true,
             message: "Data fetched succesfully",
@@ -26,7 +26,7 @@ export const createprod = async (req, res) => {
       });
     }
 
-    const product = await productModel.create({
+    const product = await Product.create({
       name,
       Price,
       imagesUrl: req.file.filename, // saved image name

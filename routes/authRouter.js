@@ -1,6 +1,7 @@
 import express from "express"
 import { loginValidation, signUpValidation } from "../middlewares/AuthValidation.js"
 import  { login,signup } from "../controllers/authController.js"
+import ensureAuthenticated from "../middlewares/Auth.js"
 
 const Router = express.Router()
 

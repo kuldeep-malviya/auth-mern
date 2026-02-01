@@ -7,4 +7,10 @@ const Router = express.Router()
 Router.post("/signup",signUpValidation,signup)
 Router.post("/login",loginValidation,login)
 
+Router.post("/logout", ensureAuthenticated, (req, res) => {
+  return res.json({ message: "Logged out successfully" });
+});
+
+
+
 export default Router
